@@ -3,10 +3,11 @@ import datetime
 import discord
 from food import food
 
+f = open('.gitignore', 'r')
 
 client = discord.Client()
-discordbottoken="ODE4MTQ0OTkzODcyOTY5Nzcx.YETy5g.2eIWgNHOBqmgdNyyF6K8jufMnKg"
-
+discordbottoken = f.readline()
+f.close()
 
 @client.event
 async def on_ready():
