@@ -3,10 +3,10 @@ import datetime
 import discord
 from food import food
 
-f = open('.gitignore', 'r')
+f = open('discordbottoken', 'r')
 
 client = discord.Client()
-discordbottoken = f.readline()
+token = f.readline()
 f.close()
 
 @client.event
@@ -48,4 +48,4 @@ async def on_message(message):
             
             await message.channel.send(f"```등록일: {time}\n식단: {diet}\n칼로리: {calorie}```\n{img}")
 
-client.run(discordbottoken)
+client.run(token)
