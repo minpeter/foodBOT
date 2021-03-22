@@ -46,24 +46,25 @@ async def on_message(message):
         elif holiday_check(dt.day) == True:
             await message.channel.send(f"```{dt.month}월 {dt.day}일은 급식이 없습니다!```\n{nothing_img}")
 
+
     if message.content.startswith("!내일급식") or message.content.startswith("!ㄴㅇㄱㅅ"):
-            dt = datetime.datetime.now()
-            if holiday_check(dt.day + 1) == False:
-                today = food(dt.month, dt.day + 1)
+        dt = datetime.datetime.now()
+        if holiday_check(dt.day + 1) == False:
+            today = food(dt.month, dt.day + 1)
 
-                time = today[1].strip()
-                diet = today[3].strip()
-                calorie = today[4].strip()
+            time = today[1].strip()
+            diet = today[3].strip()
+            calorie = today[4].strip()
 
-                img = "이미지가 존재하지 않음"
+            img = "이미지가 존재하지 않음"
 
-                if len(today) == 6:
-                    img = "http://hansei.sen.hs.kr"+today[5].strip()
+            if len(today) == 6:
+                img = "http://hansei.sen.hs.kr"+today[5].strip()
+            
+            await message.channel.send(f"```등록일: {time}\n식단: {diet}\n칼로리: {calorie}```\n{img}")
+
                 
-                await message.channel.send(f"```등록일: {time}\n식단: {diet}\n칼로리: {calorie}```\n{img}")
-
-                  
-            elif holiday_check(dt.day + 1) == True:
-                await message.channel.send(f"```{dt.month}월 {dt.day}일은 급식이 없습니다!```\n{nothing_img}")
+        elif holiday_check(dt.day + 1) == True:
+            await message.channel.send(f"```{dt.month}월 {dt.day}일은 급식이 없습니다!```\n{nothing_img}")
 
 client.run(token)
