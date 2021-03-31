@@ -12,8 +12,7 @@ client = commands.Bot(command_prefix='!')
 token = f.readline()
 f.close()
 
-nothing_img = 'https://p16-va-default.akamaized.net/img/musically-maliva-obj/1663611286516741~c5_720x720.jpeg'
-
+nothing_img = "https://p16-va-default.akamaized.net/img/musically-maliva-obj/1663611286516741~c5_720x720.jpeg"
 
 def holiday_check(day):
     dt = datetime.datetime.now()
@@ -58,7 +57,7 @@ async def todaylunch(message):
         diet = today[3].strip()
         calorie = today[4].strip()
 
-        img = "이미지가 존재하지 않음"
+        img = "https://www.namdokorea.com/site/jeonnam/tour/images/noimage.gif" #이미지없음
 
         if len(today) == 6:
             img = "http://hansei.sen.hs.kr" + today[5].strip()
@@ -66,7 +65,8 @@ async def todaylunch(message):
         embed = discord.Embed(title="오늘급식", description="오늘의 급식은?!?!?!", color=0xf29661)
         embed.add_field(name="식단", value=f"{diet}", inline=False)
         embed.add_field(name="칼로리", value=f"{calorie}", inline=False)
-        embed.add_field(name="이미지", value=f"{img}", inline=False)
+        #embed.add_field(name="이미지", value=f"{img}", inline=False)
+        embed.set_image(url=img)
         embed.set_footer(text=f"등록일: {time}")
 
         await message.send(embed=embed)
@@ -90,7 +90,7 @@ async def tomorrowlunch(message):
         diet = today[3].strip()
         calorie = today[4].strip()
 
-        img = "이미지가 존재하지 않음"
+        img = "https://www.namdokorea.com/site/jeonnam/tour/images/noimage.gif" #이미지없음
 
         if len(today) == 6:
             img = "http://hansei.sen.hs.kr" + today[5].strip()
@@ -98,7 +98,8 @@ async def tomorrowlunch(message):
         embed = discord.Embed(title="내일급식", description="내일 급식은?!?!?!", color=0xb7f0b1)
         embed.add_field(name="식단", value=f"{diet}", inline=False)
         embed.add_field(name="칼로리", value=f"{calorie}", inline=False)
-        embed.add_field(name="이미지", value=f"{img}", inline=False)
+        #embed.add_field(name="이미지", value=f"{img}", inline=False)
+        embed.set_image(url=img)
         embed.set_footer(text=f"등록일: {time}")
 
         await message.send(embed=embed)
