@@ -7,4 +7,4 @@ def holiday_check(day):
 
 def lastday_check(day):
     dt = datetime.datetime.now()
-    return int(calendar.monthrange(dt.year,dt.month)[1]) == int(day) #리턴갑이 F면 정상 T면 다음달1일로 넘어감
+    return calendar.monthrange(dt.year,dt.month)[1] == day #리턴갑이 F면 정상 T면 다음달1일로 넘어감
