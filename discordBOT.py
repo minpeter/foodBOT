@@ -52,7 +52,7 @@ async def todaylunch(message):
         today = food(dt.month, dt.day)
 
         time = today['MLSV_YMD']
-        diet = today['DDISH_NM']
+        diet = today['DDISH_NM'].replace('<br/>', ', ')
         calorie = today['CAL_INFO']
 
         img = "https://www.namdokorea.com/site/jeonnam/tour/images/noimage.gif" #이미지없음
