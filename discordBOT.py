@@ -9,7 +9,7 @@ from discord.ext import commands
 f = open('discordbottoken', 'r')
 
 client = commands.Bot(command_prefix='!')
-token = f.readline()
+discordbottoken = f.readline()
 f.close()
 
 nothing_img = "https://p16-va-default.akamaized.net/img/musically-maliva-obj/1663611286516741~c5_720x720.jpeg"
@@ -122,4 +122,4 @@ async def tomorrowlunch(message):
 
 
 
-client.run(token)
+client.run(discordbottoken)
