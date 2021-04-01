@@ -11,7 +11,7 @@ URL = f"https://open.neis.go.kr/hub/mealServiceDietInfo?KEY={neisapitoken}&Type=
 
 def food(m,d):
     dt = datetime.datetime.now()
-    response = requests.get(URL).json()
+    response = requests.get(URL+f"&MLSV_YMD={dt.strftime('%Y%m%d')}").json()
     print(URL+f"&MLSV_YMD={dt.strftime('%Y%m%d')}")
     #date_head = response['mealServiceDietInfo'][0]['head']
     #[0]은 list_total_count
@@ -21,4 +21,3 @@ def food(m,d):
     
 
 #호출한 날짜의 급식정보 딕셔너리리턴
-
