@@ -3,6 +3,9 @@ import datetime
 from discord import embeds
 from food import food
 
+from confirm import holiday_check
+from confirm import lastday_check
+
 import discord
 from discord.ext import commands
 
@@ -48,20 +51,20 @@ async def todaylunch(message):
     if not holiday_check(dt.day):
         today = food(dt.month, dt.day)
 
-        time = today[1].strip()
-        diet = today[3].strip()
-        calorie = today[4].strip()
+        time = today['MLSV_YMD']
+        diet = today['DDISH_NM']
+        calorie = today['CAL_INFO']
 
         img = "https://www.namdokorea.com/site/jeonnam/tour/images/noimage.gif" #이미지없음
 
-        if len(today) == 6:
-            img = "http://hansei.sen.hs.kr" + today[5].strip()
+       # if len(today) == 6:
+        #   img = "http://hansei.sen.hs.kr" + today[5].strip()
 
         embed = discord.Embed(title="오늘급식", description="오늘의 급식은?!?!?!", color=0xf29661)
         embed.add_field(name="식단", value=f"{diet}", inline=False)
         embed.add_field(name="칼로리", value=f"{calorie}", inline=False)
         #embed.add_field(name="이미지", value=f"{img}", inline=False)
-        embed.set_image(url=img)
+        #embed.set_image(url=img)
         embed.set_footer(text=f"등록일: {time}")
 
         await message.send(embed=embed)
@@ -82,11 +85,6 @@ async def tomorrowlunch(message):
     if lastday_check(dt.day + 1):
         embed = discord.Embed(title="다음달", description="다음달이라고요!?!?!?!", color=0xb7f0b1)
         embed.add_field(name="다음날 테스트를 위한 준비", value="test", inline=False)
-        #이거 만들다가 프로젝트 중지
-        #여기서 "내일은 다음달입니다"등 메세지 출력 또는 food.py 업데이트에서 월,일 받아서 크롤링하는걸로 업데이트
-        #사실 프로젝트 중단 사유는 월초에 학교홈페이지에 정확히 급식정보가 올라오지 않음
-        #나중에 한세사이버보안고등학교 친구가 고쳐보길바람
-        #능력이 없어서 그런건 아니고 나이스 api로 시간표, 급식정보를 불러올수 있어서 크롤링을 그만둠
         await message.send(embed=embed)
 
     elif not holiday_check(dt.day + 1):
