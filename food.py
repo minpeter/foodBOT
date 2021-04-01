@@ -8,11 +8,10 @@ neisapitoken = f.readline()
 f.close()
 
 URL = f"https://open.neis.go.kr/hub/mealServiceDietInfo?KEY={neisapitoken}&Type=json&plndex={1}&Size={1}&ATPT_OFCDC_SC_CODE=B10&SD_SCHUL_CODE=7010911"
-payload = {}
 
 def food(m,d):
     dt = datetime.datetime.now()
-    response = requests.get(URL+f"&MLSV_YMD={dt.strftime('%Y%m%d')}", params=payload).json()
+    response = requests.get(URL+f"&MLSV_YMD={dt.strftime('%Y%m%d')}").json()
     date_head = response['mealServiceDietInfo'][0]['head']
     #[0]은 list_total_count
     #[1]은 {'RESULT': {'CODE': 'INFO-000', 'MESSAGE': '정상 처리되었습니다.'}}
