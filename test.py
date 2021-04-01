@@ -1,4 +1,4 @@
 import datetime
 import food
 
-food.food(1,2)
+print(food.food(1,2))
