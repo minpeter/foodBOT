@@ -3,9 +3,6 @@ import datetime
 from discord import embeds
 from food import food
 
-from confirm import holiday_check
-from confirm import lastday_check
-
 import discord
 from discord.ext import commands
 
