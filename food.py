@@ -13,7 +13,7 @@ payload = {}
 def food(m,d):
     dt = datetime.datetime.now()
     response = requests.get(URL+f"&MLSV_YMD={dt.strftime('%Y%m%d')}", params=payload).json()
-    #date_head = response['mealServiceDietInfo'][0]['head']
+    date_head = response['mealServiceDietInfo'][0]['head']
     #[0]은 list_total_count
     #[1]은 {'RESULT': {'CODE': 'INFO-000', 'MESSAGE': '정상 처리되었습니다.'}}
     date_body = response['mealServiceDietInfo'][1]['row'][0]
