@@ -55,20 +55,12 @@ async def todaylunch(message):
         diet = today['DDISH_NM'].replace('<br/>', ', ')
         calorie = today['CAL_INFO']
 
-        img = "https://www.namdokorea.com/site/jeonnam/tour/images/noimage.gif" #이미지없음
-
-       # if len(today) == 6:
-        #   img = "http://hansei.sen.hs.kr" + today[5].strip()
-
         embed = discord.Embed(title="오늘급식", description="오늘의 급식은?!?!?!", color=0xf29661)
         embed.add_field(name="식단", value=f"{diet}", inline=False)
         embed.add_field(name="칼로리", value=f"{calorie}", inline=False)
-        #embed.add_field(name="이미지", value=f"{img}", inline=False)
-        #embed.set_image(url=img)
         embed.set_footer(text=f"등록일: {time}")
 
         await message.send(embed=embed)
-        #await message.send(f"```등록일: {time}\n식단: {diet}\n칼로리: {calorie}```\n{img}")
 
     elif holiday_check(dt.day):
         embed = discord.Embed(title="오늘급식", description="..?", color=0xf15f5f).set_image(nothing_img)
@@ -76,8 +68,6 @@ async def todaylunch(message):
         embed.set_footer(text=f"오늘 날짜: {dt.month}월 {dt.day}일")
         
         await message.send(embed=embed)
-        #await message.send(f"```{dt.month}월 {dt.day}일은 급식이 없습니다!```\n{nothing_img}")
-
 
 async def tomorrowlunch(message):
     dt = datetime.datetime.now()
@@ -90,24 +80,16 @@ async def tomorrowlunch(message):
     elif not holiday_check(dt.day + 1):
         today = food(dt.month, dt.day + 1)
 
-        time = today[1].strip()
-        diet = today[3].strip()
-        calorie = today[4].strip()
-
-        img = "https://www.namdokorea.com/site/jeonnam/tour/images/noimage.gif" #이미지없음
-
-        if len(today) == 6:
-            img = "http://hansei.sen.hs.kr" + today[5].strip()
+        time = today['MLSV_YMD']
+        diet = today['DDISH_NM'].replace('<br/>', ', ')
+        calorie = today['CAL_INFO']
 
         embed = discord.Embed(title="내일급식", description="내일 급식은?!?!?!", color=0xb7f0b1)
         embed.add_field(name="식단", value=f"{diet}", inline=False)
         embed.add_field(name="칼로리", value=f"{calorie}", inline=False)
-        #embed.add_field(name="이미지", value=f"{img}", inline=False)
-        embed.set_image(url=img)
         embed.set_footer(text=f"등록일: {time}")
 
         await message.send(embed=embed)
-        #await message.channel.send(f"```등록일: {time}\n식단: {diet}\n칼로리: {calorie}```\n{img}")
 
     elif holiday_check(dt.day + 1):
         embed = discord.Embed(title="내일급식", description="..?", color=0xf15f5f).set_image(nothing_img)
@@ -115,9 +97,6 @@ async def tomorrowlunch(message):
         embed.set_footer(text=f"내일 날짜: {dt.month}월 {dt.day}일")
         
         await message.send(embed=embed)
-        #await message.channel.send(f"```{dt.month}월 {dt.day}일은 급식이 없습니다!```\n{nothing_img}")
-    
-
 
 
 client.run(discordbottoken)
