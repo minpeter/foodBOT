@@ -17,7 +17,7 @@ def food(m,d):
     #[0]은 list_total_count
     #[1]은 {'RESULT': {'CODE': 'INFO-000', 'MESSAGE': '정상 처리되었습니다.'}}
     #date_body = response['mealServiceDietInfo'][1]['row'][0]
-    return date_body
+    return response
     
 
 #호출한 날짜의 급식정보 딕셔너리리턴
