@@ -20,13 +20,24 @@ def food(monthF, dayF):
     driver.find_element_by_xpath('//*[@id="divLayerMlsvPopup"]/div/div/div/button').click()
 
     resultlist = []
+    temp = []
 
     for i in table.find_all("td"):
-        result = i.string
-        resultlist.append(result)
+        temp.append(i.string)
 
+    if len(temp) == 6:
+        del temp[5]
+        temp.append("http://hansei.sen.hs.kr" + table.find("img")["src"])
+
+    for i in temp:
+        resultlist.append(i.strip())
+    
+    noimg = "http://hansei.sen.hs.kr" + '/design/template/template030/images/index_board_mlsv_03/main_school_menu_thumbnail.jpg'
+    resultdict = {'time':resultlist[1],'diet':resultlist[3],'calorie':resultlist[4],'img':noimg}
+    
     if len(resultlist) == 6:
-        del resultlist[5]
-        resultlist.append(table.find("img")["src"])
+        resultdict['img'] = resultlist[5]
+    
+    
 
-    return resultlist
+    return resultdict
