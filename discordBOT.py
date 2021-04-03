@@ -60,8 +60,8 @@ async def todaylunch(message):
         await message.send(embed=embed)
 
     elif holiday_check(dt.day):
-        embed = discord.Embed(title="오늘급식", description="..?", color=0xf15f5f).set_image(nothing_img)
-        embed.add_field(name="오늘은 급식이 없습니다!", value="❌", inline=False)
+        embed = discord.Embed(title="오늘급식", description="오늘은 급식이 없습니다!", color=0xf15f5f)
+        embed.set_image(url=nothing_img)
         embed.set_footer(text=f"오늘 날짜: {dt.month}월 {dt.day}일")
         
         await message.send(embed=embed)
@@ -92,8 +92,8 @@ async def tomorrowlunch(message):
         await message.send(embed=embed)
 
     elif holiday_check(dt.day + 1):
-        embed = discord.Embed(title="내일급식", description="..?", color=0xf15f5f).set_image(nothing_img)
-        embed.add_field(name="내일은 급식이 없습니다!", value="❌", inline=False)
+        embed = discord.Embed(title="내일급식", description="내일은 급식이 없습니다!", color=0xf15f5f)
+        embed.set_image(url=nothing_img)
         embed.set_footer(text=f"내일 날짜: {dt.month}월 {dt.day}일")
         
         await message.send(embed=embed)
