@@ -19,3 +19,7 @@
 6. > unzip ./chromedriver_linux64.zip chromedriver
 7. > pip install --no-cache-dir -r requirements.txt
 8. > python3 discordBOT.py
+
+
+## file tree
+![file tree image](https://github.com/minpeter/foodbot/filetree.png)
