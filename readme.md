@@ -22,4 +22,4 @@
 
 
 ## file tree
-![file tree image](https://github.com/minpeter/foodbot/filetree.png)
+![file tree image](https://github.com/minpeter/foodBOT/blob/main/filetree.png?raw=true)
