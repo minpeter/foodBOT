@@ -1,4 +1,3 @@
-discord
-datetime
 bs4
+discord
 selenium

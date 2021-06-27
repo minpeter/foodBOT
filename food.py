@@ -7,7 +7,8 @@ options.add_argument('--headless')
 options.add_argument('--no-sandbox')
 options.add_argument("disable-dev-shm-usage")
 driver = webdriver.Chrome('./chromedriver', options=options)
-driver.get('http://hansei.sen.hs.kr/50649/subMenu.do')
+driver.get('http://hansei.sen.hs.kr/50669/subMenu.do')
+
 
 
 def food(monthF, dayF):
