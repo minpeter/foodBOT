@@ -19,9 +19,9 @@ nothing_img = 'https://images.rapgenius.com/d10e27e11d9ac778a5aa0f03d4012b99.500
 
 @client.event
 async def on_ready():
-    print(client.user.id)
-    print(client.user.name)
-    print("ready")
+    print(f"BOT ID : {client.user.id}")
+    print(f"BOT name : {client.user.name}")
+    print("========== ready ==========")
     await client.change_presence(status=discord.Status.online, activity=discord.Game("!오늘급식 or !내일급식"))
 
 
